@@ -9,7 +9,7 @@ use mmSystem;
 -- 用户表
 create table if not exists user
 (
-    id           bigint auto_increment comment 'id' primary key,
+    id           varchar(20) auto_increment comment 'id' primary key,
 #     账号（手机号）
     phoneId  varchar(256)                           not null comment '账号(手机号)',
 #     用户名
@@ -28,7 +28,7 @@ create table if not exists user
 -- 包含 生产厂家，型号，出厂日期，使用年限
 create table if not exists sensor
 (
-    id          bigint auto_increment comment 'id' primary key,
+    id          varchar(20) auto_increment comment 'id' primary key,
 #     传感器名称
     sensorName  varchar(256)                           not null comment '传感器名称',
 #     传感器型号
@@ -50,7 +50,7 @@ create table if not exists sensor
 -- 煤矿表
 create table if not exists coalMine
 (
-    id          bigint auto_increment comment 'id' primary key,
+    id          varchar(20) auto_increment comment 'id' primary key,
     #     煤矿名称
     coalMineName varchar(256)                           not null comment '煤矿名称',
     #     煤矿所属单位

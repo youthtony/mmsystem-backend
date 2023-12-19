@@ -14,7 +14,7 @@ public class Sensor {
      * id
      */
     @TableId(type = IdType.ASSIGN_ID)
-    private Long id;
+    private String id;
 
     /**
      * 传感器名称

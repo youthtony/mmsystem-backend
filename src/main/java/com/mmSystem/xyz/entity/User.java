@@ -14,7 +14,7 @@ public class User {
      * id
      */
     @TableId(type = IdType.ASSIGN_ID)
-    private Long id;
+    private String id;
 
     /**
      * 账号（手机号）

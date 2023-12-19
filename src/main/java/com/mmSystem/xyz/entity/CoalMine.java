@@ -14,7 +14,7 @@ public class CoalMine {
      * id
      */
     @TableId(type = IdType.ASSIGN_ID)
-    private Long id;
+    private String id;
 
     /**
      * 煤矿名称
