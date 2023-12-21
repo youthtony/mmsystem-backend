@@ -1,9 +1,11 @@
 package com.mmSystem.xyz.service.Impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mmSystem.xyz.dao.CoalMineMapper;
 import com.mmSystem.xyz.entity.CoalMine;
+import com.mmSystem.xyz.entity.Sensor;
 import com.mmSystem.xyz.service.CoalMineService;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +31,15 @@ public class CoalMineServiceImpl extends ServiceImpl<CoalMineMapper, CoalMine>
     public List<CoalMine> getAllCoalMine() {
         return baseMapper.selectList(new QueryWrapper<CoalMine>().eq("isDelete",0));
     }
+
+    @Override
+    public void updateCoalMineById(CoalMine coalMine) {
+        UpdateWrapper<CoalMine> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.set("isDelete", 1)
+                .eq("Id", coalMine.getId());
+        this.update(updateWrapper);
+    }
+
     /**
      * 批量添加煤矿
      */

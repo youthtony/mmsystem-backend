@@ -58,8 +58,7 @@ public class CoalMineController {
      */
     @PostMapping("/deleteCoalMine")
     public BaseResponse<String> deleteCoalMine(@RequestBody CoalMine coalMine){
-        coalMine.setIsDelete(1);
-        coalMineService.updateById(coalMine);
+        coalMineService.updateCoalMineById(coalMine);
         return ResultUtils.success("删除成功");
     }
 }

@@ -1,16 +1,18 @@
 package com.mmSystem.xyz.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mmSystem.xyz.common.BaseResponse;
 import com.mmSystem.xyz.common.ResultUtils;
 import com.mmSystem.xyz.entity.Sensor;
 import com.mmSystem.xyz.service.SensorService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
 
-
+@Slf4j
 @RestController
 @RequestMapping("/sensor")
 public class SensorController {
@@ -58,8 +60,7 @@ public class SensorController {
      */
     @PostMapping("/deleteSensor")
     public BaseResponse<String> deleteSensor(@RequestBody Sensor sensor){
-        sensor.setIsDelete(1);
-        sensorService.updateById(sensor);
+        sensorService.updateSensorById(sensor);
         return ResultUtils.success("删除成功");
     }
 }

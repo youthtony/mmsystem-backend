@@ -1,6 +1,7 @@
 package com.mmSystem.xyz.service.Impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mmSystem.xyz.dao.SensorMapper;
 import com.mmSystem.xyz.dao.UserMapper;
@@ -43,6 +44,18 @@ public class SensorServiceImpl extends ServiceImpl<SensorMapper, Sensor>
                 sensors) {
             baseMapper.insert(sensor);
         }
+    }
+
+    /**
+     * 更新数据
+     * @param sensor
+     */
+    @Override
+    public void updateSensorById(Sensor sensor) {
+        UpdateWrapper<Sensor> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.set("isDelete", 1)
+                .eq("Id", sensor.getId());
+        this.update(updateWrapper);
     }
 
 }

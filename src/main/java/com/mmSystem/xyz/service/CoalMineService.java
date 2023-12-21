@@ -3,6 +3,7 @@ package com.mmSystem.xyz.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.mmSystem.xyz.entity.CoalMine;
 import com.mmSystem.xyz.entity.CoalMine;
+import com.mmSystem.xyz.entity.Sensor;
 
 import java.util.List;
 
@@ -17,6 +18,12 @@ public interface CoalMineService extends IService<CoalMine> {
      *返回所有煤矿
      **/
     List<CoalMine> getAllCoalMine();
+
+    /**
+     * 更新数据
+     * @param sensor
+     */
+    void updateCoalMineById(CoalMine coalMine);
 
     void addCoalMines(List<CoalMine> coalMines);
 }
