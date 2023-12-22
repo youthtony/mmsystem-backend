@@ -4,6 +4,7 @@ import com.mmSystem.xyz.common.BaseResponse;
 import com.mmSystem.xyz.common.ResultUtils;
 import com.mmSystem.xyz.entity.CoalMine;
 import com.mmSystem.xyz.service.CoalMineService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -60,5 +61,13 @@ public class CoalMineController {
     public BaseResponse<String> deleteCoalMine(@RequestBody CoalMine coalMine){
         coalMineService.updateCoalMineById(coalMine);
         return ResultUtils.success("删除成功");
+    }
+
+    /**
+     * 模糊搜索
+     */
+    @PostMapping("/searchCoalMine")
+    public BaseResponse<List<CoalMine>> searchCoalMine(@Param("search") String search){
+        return ResultUtils.success(coalMineService.fuzzySearch(search));
     }
 }

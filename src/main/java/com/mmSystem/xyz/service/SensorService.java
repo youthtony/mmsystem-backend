@@ -25,4 +25,10 @@ public interface SensorService extends IService<Sensor> {
 
     void addSensors(List<Sensor> sensors);
 
+    /**
+     * 模糊搜索
+     * @param search
+     */
+    List<Sensor> fuzzySearch(String search);
+
 }

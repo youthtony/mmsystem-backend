@@ -33,6 +33,20 @@ public class CoalMineServiceImpl extends ServiceImpl<CoalMineMapper, CoalMine>
     }
 
     @Override
+    public List<CoalMine> fuzzySearch(String search) {
+        QueryWrapper<CoalMine> wrapper = new QueryWrapper<>();
+        wrapper.like("coalMineName", search)
+                .or()
+                .like("coalMineUnit", search)
+                .or()
+                .like("coalMineSupervisionUnit", search)
+                .or()
+                .like("coalMineAddress",search);
+
+        return baseMapper.selectList(wrapper);
+    }
+
+    @Override
     public void updateCoalMineById(CoalMine coalMine) {
         UpdateWrapper<CoalMine> updateWrapper = new UpdateWrapper<>();
         updateWrapper.set("isDelete", 1)

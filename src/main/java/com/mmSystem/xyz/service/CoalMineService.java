@@ -21,9 +21,15 @@ public interface CoalMineService extends IService<CoalMine> {
 
     /**
      * 更新数据
-     * @param sensor
+     * @param coalMine
      */
     void updateCoalMineById(CoalMine coalMine);
 
     void addCoalMines(List<CoalMine> coalMines);
+
+    /**
+     * 模糊搜索
+     * @param search
+     */
+    List<CoalMine> fuzzySearch(String search);
 }

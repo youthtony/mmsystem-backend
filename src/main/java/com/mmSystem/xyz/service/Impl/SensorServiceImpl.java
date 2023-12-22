@@ -46,6 +46,18 @@ public class SensorServiceImpl extends ServiceImpl<SensorMapper, Sensor>
         }
     }
 
+    @Override
+    public List<Sensor> fuzzySearch(String search) {
+        QueryWrapper<Sensor> wrapper = new QueryWrapper<>();
+        wrapper.like("sensorName", search)
+                .or()
+                .like("sensorType", search)
+                .or()
+                .like("sensorManufacturer", search);
+
+        return baseMapper.selectList(wrapper);
+    }
+
     /**
      * 更新数据
      * @param sensor
