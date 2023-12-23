@@ -1,6 +1,8 @@
-package com.mmSystem.xyz.socket.ServiceImpl;// 使用 MyBatis-Plus 的 SocketDataService
+package com.mmSystem.xyz.socket.service.ServiceImpl;// 使用 MyBatis-Plus 的 SocketDataService
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.google.gson.Gson;
+import com.mmSystem.xyz.entity.Sensor;
 import com.mmSystem.xyz.entity.SocketData;
 import com.mmSystem.xyz.socket.dao.SocketDataRepository;
 import com.mmSystem.xyz.socket.service.SocketDataService;
@@ -12,17 +14,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.List;
 
 @Service
 public class SocketDataServiceImpl extends ServiceImpl<SocketDataRepository, SocketData> implements SocketDataService {
 
-    private final SocketDataRepository socketDataRepository;
-
-
-    @Autowired
-    public SocketDataServiceImpl(SocketDataRepository socketDataRepository) {
-        this.socketDataRepository = socketDataRepository;
-    }
+//    private final SocketDataRepository socketDataRepository;
+//
+//
+//    @Autowired
+//    public SocketDataServiceImpl(SocketDataRepository socketDataRepository) {
+//        this.socketDataRepository = socketDataRepository;
+//    }
 
     public void startSocketListener(int port) {
         new Thread(() -> {

@@ -15,7 +15,7 @@ public class SocketData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     @TableField(value = "gasConcentration")
     private double gasConcentration;

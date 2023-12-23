@@ -1,6 +1,6 @@
 package com.mmSystem.xyz;
 
-import com.mmSystem.xyz.socket.ServiceImpl.SocketDataServiceImpl;
+import com.mmSystem.xyz.socket.service.ServiceImpl.SocketDataServiceImpl;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
