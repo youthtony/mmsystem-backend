@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 @Configuration
 @EnableTransactionManagement
 @MapperScan("com.mmSystem.xyz.dao") // 设置你的 DAO 包路径
+@MapperScan("com.mmSystem.xyz.socket")
 public class MybatisPlusConfig {
     @Bean
     public MybatisPlusInterceptor mybatisPlusInterceptor() {

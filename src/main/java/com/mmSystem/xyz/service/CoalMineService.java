@@ -23,7 +23,7 @@ public interface CoalMineService extends IService<CoalMine> {
      * 更新数据
      * @param coalMine
      */
-    void updateCoalMineById(CoalMine coalMine);
+    void deleteCoalMineById(CoalMine coalMine);
 
     void addCoalMines(List<CoalMine> coalMines);
 

@@ -61,7 +61,7 @@ public class SensorController {
      */
     @PostMapping("/deleteSensor")
     public BaseResponse<String> deleteSensor(@RequestBody Sensor sensor){
-        sensorService.updateSensorById(sensor);
+        sensorService.deleteSensorById(sensor);
         return ResultUtils.success("删除成功");
     }
 

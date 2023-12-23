@@ -77,8 +77,7 @@ public class UserController {
      */
     @PostMapping("/deleteUser")
     public BaseResponse<String> deleteUser(@RequestBody User user){
-        user.setIsDelete(1);
-        userService.updateById(user);
+        userService.deleteSensorById(user);
         return  ResultUtils.success("注销成功");
     }
 }

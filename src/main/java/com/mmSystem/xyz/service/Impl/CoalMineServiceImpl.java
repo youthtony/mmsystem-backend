@@ -47,7 +47,7 @@ public class CoalMineServiceImpl extends ServiceImpl<CoalMineMapper, CoalMine>
     }
 
     @Override
-    public void updateCoalMineById(CoalMine coalMine) {
+    public void deleteCoalMineById(CoalMine coalMine) {
         UpdateWrapper<CoalMine> updateWrapper = new UpdateWrapper<>();
         updateWrapper.set("isDelete", 1)
                 .eq("Id", coalMine.getId());

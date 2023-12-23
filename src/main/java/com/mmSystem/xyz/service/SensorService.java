@@ -21,7 +21,7 @@ public interface SensorService extends IService<Sensor> {
      * 更新数据
      * @param sensor
      */
-    void updateSensorById(Sensor sensor);
+    void deleteSensorById(Sensor sensor);
 
     void addSensors(List<Sensor> sensors);
 

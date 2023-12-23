@@ -1,8 +1,10 @@
 package com.mmSystem.xyz.service.Impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.mmSystem.xyz.dao.UserMapper;
+import com.mmSystem.xyz.entity.Sensor;
 import com.mmSystem.xyz.entity.User;
 import com.mmSystem.xyz.service.UserService;
 import org.springframework.stereotype.Service;
@@ -24,6 +26,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
     @Override
     public void addUser(User user) {
         baseMapper.insert(user);
+    }
+
+    @Override
+    public void deleteSensorById(User user) {
+        UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.set("isDelete", 1)
+                .eq("id", user.getId());
+        this.update(updateWrapper);
     }
 
 }

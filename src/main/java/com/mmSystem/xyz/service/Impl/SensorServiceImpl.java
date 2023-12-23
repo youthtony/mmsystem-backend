@@ -63,7 +63,7 @@ public class SensorServiceImpl extends ServiceImpl<SensorMapper, Sensor>
      * @param sensor
      */
     @Override
-    public void updateSensorById(Sensor sensor) {
+    public void deleteSensorById(Sensor sensor) {
         UpdateWrapper<Sensor> updateWrapper = new UpdateWrapper<>();
         updateWrapper.set("isDelete", 1)
                 .eq("Id", sensor.getId());

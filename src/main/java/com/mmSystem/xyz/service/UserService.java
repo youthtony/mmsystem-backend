@@ -2,6 +2,7 @@ package com.mmSystem.xyz.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.mmSystem.xyz.entity.Sensor;
 import com.mmSystem.xyz.entity.User;
 
 public interface UserService extends IService<User>{
@@ -16,5 +17,11 @@ public interface UserService extends IService<User>{
      * @param user
      */
     void addUser(User user);
+
+    /**
+     * 删除用户
+     * @param sensor
+     */
+    void deleteSensorById(User user);
 
 }
