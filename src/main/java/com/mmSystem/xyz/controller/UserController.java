@@ -21,7 +21,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    private Gson gson = new Gson();
     @Autowired
     private UserService userService;
 

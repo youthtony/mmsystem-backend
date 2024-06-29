@@ -20,11 +20,15 @@ public interface CoalMineService extends IService<CoalMine> {
     List<CoalMine> getAllCoalMine();
 
     /**
-     * 更新数据
+     * 删除数据
      * @param coalMine
      */
     void deleteCoalMineById(CoalMine coalMine);
 
+    /**
+     * 添加煤矿
+     * @param coalMines
+     */
     void addCoalMines(List<CoalMine> coalMines);
 
     /**

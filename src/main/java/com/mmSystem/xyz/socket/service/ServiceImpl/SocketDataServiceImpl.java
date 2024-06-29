@@ -19,19 +19,14 @@ import java.util.List;
 @Service
 public class SocketDataServiceImpl extends ServiceImpl<SocketDataRepository, SocketData> implements SocketDataService {
 
-//    private final SocketDataRepository socketDataRepository;
-//
-//
-//    @Autowired
-//    public SocketDataServiceImpl(SocketDataRepository socketDataRepository) {
-//        this.socketDataRepository = socketDataRepository;
-//    }
 
-    public void startSocketListener(int port) {
+    // 创建一个ServerSocket，监听端口
+public void startSocketListener(int port) {
         new Thread(() -> {
             try (ServerSocket serverSocket = new ServerSocket(port)) {
                 while (true) {
-                    Socket socket = serverSocket.accept();
+                  Socket socket = serverSocket.accept();
+                    // 处理客户端发送的数据
                     processSocketData(socket);
                 }
             } catch (IOException e) {
@@ -45,8 +40,6 @@ public class SocketDataServiceImpl extends ServiceImpl<SocketDataRepository, Soc
             String inputData = reader.readLine();
 
             // 将 inputData 解析为 SocketData 对象
-            // 为简单起见，假设 inputData 是一个 JSON 字符串
-            // 你可能需要使用类似 Jackson 或 Gson 的 JSON 库
             SocketData socketData = parseSocketData(inputData);
 
             // 使用 MyBatis-Plus 将数据保存到数据库
@@ -62,9 +55,6 @@ public class SocketDataServiceImpl extends ServiceImpl<SocketDataRepository, Soc
 
     private SocketData parseSocketData(String inputData) {
         // 解析 JSON 字符串并创建 SocketData 对象
-        // 为简单起见，你可以使用 Gson 或 Jackson 这样的 JSON 库
-        // 例子（使用 Gson）：
-        // return new Gson().fromJson(inputData, SocketData.class);
         return new Gson().fromJson(inputData, SocketData.class);
     }
 }

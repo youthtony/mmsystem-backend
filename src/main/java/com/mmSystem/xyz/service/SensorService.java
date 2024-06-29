@@ -18,10 +18,15 @@ public interface SensorService extends IService<Sensor> {
     List<Sensor> getAllSensor();
 
     /**
-     * 更新数据
+     * 删除数据
      * @param sensor
      */
     void deleteSensorById(Sensor sensor);
+
+    /**
+     *  批量添加传感器
+     * @param sensors
+     */
 
     void addSensors(List<Sensor> sensors);
 

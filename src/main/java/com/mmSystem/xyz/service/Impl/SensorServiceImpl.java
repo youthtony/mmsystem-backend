@@ -18,26 +18,17 @@ import java.util.List;
 @Service
 public class SensorServiceImpl extends ServiceImpl<SensorMapper, Sensor>
         implements SensorService {
-    /**
-     * 添加传感器
-     * @param sensor
-     */
+
     @Override
     public void addSensor(Sensor sensor) {
         baseMapper.insert(sensor);
     }
 
-    /**
-     * 获取所有传感器
-     * @return
-     */
     @Override
     public List<Sensor> getAllSensor() {
         return baseMapper.selectList(new QueryWrapper<Sensor>().eq("isDelete",0));
     }
-    /**
-     * 批量添加传感器
-     */
+
     @Override
     public void addSensors(List<Sensor> sensors) {
         for (Sensor sensor :
@@ -58,10 +49,6 @@ public class SensorServiceImpl extends ServiceImpl<SensorMapper, Sensor>
         return baseMapper.selectList(wrapper);
     }
 
-    /**
-     * 更新数据
-     * @param sensor
-     */
     @Override
     public void deleteSensorById(Sensor sensor) {
         UpdateWrapper<Sensor> updateWrapper = new UpdateWrapper<>();

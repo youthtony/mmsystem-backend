@@ -14,19 +14,12 @@ import java.util.List;
 @Service
 public class CoalMineServiceImpl extends ServiceImpl<CoalMineMapper, CoalMine>
         implements CoalMineService {
-    /**
-     * 添加煤矿
-     * @param coalMine
-     */
+
     @Override
     public void addCoalMine(CoalMine coalMine) {
         baseMapper.insert(coalMine);
     }
 
-    /**
-     * 获取所有煤矿
-     * @return
-     */
     @Override
     public List<CoalMine> getAllCoalMine() {
         return baseMapper.selectList(new QueryWrapper<CoalMine>().eq("isDelete",0));
@@ -54,9 +47,6 @@ public class CoalMineServiceImpl extends ServiceImpl<CoalMineMapper, CoalMine>
         this.update(updateWrapper);
     }
 
-    /**
-     * 批量添加煤矿
-     */
     @Override
     public void addCoalMines(List<CoalMine> coalMines) {
         for (CoalMine coalMine :

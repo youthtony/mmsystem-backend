@@ -19,8 +19,8 @@ public interface UserService extends IService<User>{
     void addUser(User user);
 
     /**
-     * 删除用户
-     * @param sensor
+     *  删除用户
+     * @param user
      */
     void deleteSensorById(User user);
 
